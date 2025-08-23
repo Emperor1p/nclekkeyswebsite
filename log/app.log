@@ -1,0 +1,567 @@
+INFO 2025-08-10 00:09:15,818 autoreload 17552 8780 Watching for file changes with StatReloader
+WARNING 2025-08-10 00:21:30,923 log 17552 15340 Not Found: /
+INFO 2025-08-10 00:55:28,520 middleware 17552 7608 Auth request: POST /api/auth/register/ from 127.0.0.1 - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+WARNING 2025-08-10 00:55:28,601 log 17552 7608 Bad Request: /api/auth/register/
+INFO 2025-08-10 00:55:46,510 middleware 17552 7608 Auth request: POST /api/auth/register/ from 127.0.0.1 - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+WARNING 2025-08-10 00:55:46,521 log 17552 7608 Bad Request: /api/auth/register/
+INFO 2025-08-11 17:36:18,367 autoreload 27244 13248 Watching for file changes with StatReloader
+INFO 2025-08-11 17:43:36,590 autoreload 16012 31548 Watching for file changes with StatReloader
+INFO 2025-08-11 17:49:13,106 autoreload 5296 4704 Watching for file changes with StatReloader
+INFO 2025-08-11 18:01:09,857 autoreload 27892 17184 Watching for file changes with StatReloader
+INFO 2025-08-11 18:06:21,144 autoreload 13276 26276 Watching for file changes with StatReloader
+INFO 2025-08-11 18:11:04,184 autoreload 18288 26504 Watching for file changes with StatReloader
+WARNING 2025-08-11 18:12:34,464 log 18288 32204 Not Found: /apihttp://localhost:8000/api/auth/register/
+WARNING 2025-08-11 18:12:48,470 log 18288 32204 Not Found: /apihttp://localhost:8000/api/auth/register/
+ERROR 2025-08-11 18:16:16,024 log 18288 32204 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django_redis\client\default.py", line 300, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Python313\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 422, in initial
+    self.check_throttles(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__  # noqa: B904
+    ^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django_redis\client\default.py", line 298, in get
+    value = client.get(key)
+  File "C:\Python313\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name, keys=[name])
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\redis\client.py", line 623, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\redis\client.py", line 629, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\redis\utils.py", line 191, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python313\Lib\site-packages\redis\connection.py", line 1530, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\redis\connection.py", line 379, in connect
+    self.connect_check_health(check_health=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\redis\connection.py", line 391, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+INFO 2025-08-11 18:18:43,737 autoreload 18288 26504 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:18:44,977 autoreload 15324 18956 Watching for file changes with StatReloader
+INFO 2025-08-11 18:19:02,412 autoreload 15324 18956 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:19:03,492 autoreload 16220 15784 Watching for file changes with StatReloader
+INFO 2025-08-11 18:19:09,099 autoreload 16220 15784 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:19:10,329 autoreload 9184 24088 Watching for file changes with StatReloader
+INFO 2025-08-11 18:19:53,617 autoreload 9184 24088 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:19:54,733 autoreload 20404 17932 Watching for file changes with StatReloader
+ERROR 2025-08-11 18:21:08,628 log 20404 30268 Internal Server Error: /api/auth/register/
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django_redis\client\default.py", line 300, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python313\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Python313\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python313\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Python313\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 422, in initial
+    self.check_throttles(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\rest_framework\throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+  File "C:\Python313\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__  # noqa: B904
+    ^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\django_redis\client\default.py", line 298, in get
+    value = client.get(key)
+  File "C:\Python313\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name, keys=[name])
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\redis\client.py", line 623, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\redis\client.py", line 629, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\redis\utils.py", line 191, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Python313\Lib\site-packages\redis\connection.py", line 1530, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\site-packages\redis\connection.py", line 379, in connect
+    self.connect_check_health(check_health=True)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\site-packages\redis\connection.py", line 391, in connect_check_health
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+INFO 2025-08-11 18:22:21,979 autoreload 20404 17932 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:22:23,078 autoreload 18364 31468 Watching for file changes with StatReloader
+INFO 2025-08-11 18:28:26,379 autoreload 1464 8428 Watching for file changes with StatReloader
+WARNING 2025-08-11 18:31:14,143 log 1464 30880 Not Found: /api/
+WARNING 2025-08-11 18:31:18,099 log 1464 30880 Not Found: /api/auth/
+INFO 2025-08-11 18:36:56,785 autoreload 21392 30156 Watching for file changes with StatReloader
+INFO 2025-08-11 18:37:42,362 autoreload 21392 30156 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:37:43,528 autoreload 32756 11916 Watching for file changes with StatReloader
+INFO 2025-08-11 18:37:56,670 autoreload 32756 11916 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:39:21,750 autoreload 21960 28644 Watching for file changes with StatReloader
+WARNING 2025-08-11 18:40:42,236 log 21960 27520 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:41:17,543 log 21960 27520 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:41:39,469 log 21960 27520 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:42:05,380 log 21960 27520 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:46:03,687 log 21960 27520 Bad Request: /api/auth/register/
+ERROR 2025-08-11 18:49:04,974 auth 21960 27520 Failed to send verification email to john@example.com: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3b79c453d6esm41228406f8f.37 - gsmtp')
+WARNING 2025-08-11 18:49:18,752 log 21960 27520 Bad Request: /api/auth/login/
+ERROR 2025-08-11 18:50:15,752 auth 21960 5216 Failed to send verification email to john@example.com: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-459e5879d76sm281413095e9.24 - gsmtp')
+WARNING 2025-08-11 18:50:15,762 log 21960 5216 Bad Request: /api/auth/login/
+WARNING 2025-08-11 18:51:07,941 log 21960 5216 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:51:45,016 log 21960 5216 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:52:00,733 log 21960 5216 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:53:41,481 log 21960 5216 Bad Request: /api/auth/register/
+ERROR 2025-08-11 18:54:33,689 auth 21960 5216 Failed to send verification email to jamiuolaniyan2003@gmail.com: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3b79c3abed3sm41247419f8f.10 - gsmtp')
+INFO 2025-08-11 18:57:02,729 autoreload 21960 28644 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\users\auth_views.py changed, reloading.
+INFO 2025-08-11 18:57:03,863 autoreload 20296 29300 Watching for file changes with StatReloader
+INFO 2025-08-11 18:57:26,735 autoreload 20296 29300 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 18:57:27,813 autoreload 27408 1176 Watching for file changes with StatReloader
+WARNING 2025-08-11 18:59:09,517 log 27408 19820 Bad Request: /api/auth/register/
+WARNING 2025-08-11 18:59:23,101 log 27408 19820 Bad Request: /api/auth/register/
+WARNING 2025-08-11 19:00:41,107 log 27408 11432 Forbidden: /api/auth/users/me/
+WARNING 2025-08-11 19:00:50,297 log 27408 11432 Forbidden: /api/auth/users/me/
+INFO 2025-08-11 19:02:50,046 autoreload 27408 1176 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 19:02:51,358 autoreload 30976 27184 Watching for file changes with StatReloader
+WARNING 2025-08-11 19:03:19,271 log 30976 22016 Forbidden: /api/auth/users/me/
+WARNING 2025-08-11 19:04:37,241 log 30976 22016 Bad Request: /api/auth/login/
+WARNING 2025-08-11 19:04:48,066 log 30976 22016 Bad Request: /api/auth/login/
+INFO 2025-08-11 19:05:09,719 autoreload 30976 27184 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 19:05:11,091 autoreload 24632 27244 Watching for file changes with StatReloader
+INFO 2025-08-11 19:05:21,254 autoreload 24632 27244 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\users\auth_views.py changed, reloading.
+INFO 2025-08-11 19:05:22,358 autoreload 24536 11856 Watching for file changes with StatReloader
+INFO 2025-08-11 19:05:40,950 autoreload 24536 11856 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 19:05:42,141 autoreload 3096 108 Watching for file changes with StatReloader
+INFO 2025-08-11 19:06:16,896 autoreload 3096 108 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-11 19:06:18,157 autoreload 21900 9392 Watching for file changes with StatReloader
+WARNING 2025-08-11 19:07:37,757 log 21900 17840 Bad Request: /api/auth/register/
+WARNING 2025-08-11 19:07:52,922 log 21900 17840 Bad Request: /api/auth/register/
+WARNING 2025-08-11 19:08:44,476 log 21900 17840 Bad Request: /api/auth/register/
+WARNING 2025-08-11 19:09:40,059 log 21900 17840 Bad Request: /api/auth/register/
+WARNING 2025-08-11 19:10:14,681 log 21900 17840 Bad Request: /api/auth/register/
+WARNING 2025-08-11 19:10:26,403 log 21900 17840 Bad Request: /api/auth/register/
+INFO 2025-08-11 19:11:39,947 autoreload 21900 9392 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\users\auth_views.py changed, reloading.
+INFO 2025-08-11 19:11:41,105 autoreload 19912 24252 Watching for file changes with StatReloader
+WARNING 2025-08-11 19:11:56,078 log 19912 24892 Bad Request: /api/auth/register/
+INFO 2025-08-12 23:18:26,283 autoreload 4636 16212 Watching for file changes with StatReloader
+WARNING 2025-08-12 23:18:41,768 log 4636 23252 Not Found: /
+WARNING 2025-08-12 23:18:44,101 log 4636 23252 Not Found: /favicon.ico
+INFO 2025-08-12 23:29:08,707 autoreload 1688 23652 Watching for file changes with StatReloader
+WARNING 2025-08-12 23:30:53,133 log 1688 11244 Forbidden: /api/payments/banks/
+WARNING 2025-08-12 23:30:53,138 log 1688 11244 Forbidden: /api/payments/banks/
+WARNING 2025-08-12 23:30:53,142 log 1688 11244 Forbidden: /api/payments/channels/
+WARNING 2025-08-12 23:30:53,145 log 1688 11244 Forbidden: /api/payments/channels/
+WARNING 2025-08-12 23:30:53,148 log 1688 11244 Forbidden: /api/payments/ussd-codes/
+WARNING 2025-08-12 23:30:53,151 log 1688 11244 Forbidden: /api/payments/ussd-codes/
+WARNING 2025-08-12 23:30:53,155 log 1688 11244 Forbidden: /api/payments/mobile-money/
+WARNING 2025-08-12 23:30:53,157 log 1688 11244 Forbidden: /api/payments/mobile-money/
+WARNING 2025-08-12 23:31:24,372 log 1688 11244 Forbidden: /api/payments/initialize/
+WARNING 2025-08-12 23:31:29,984 log 1688 11244 Forbidden: /api/payments/initialize/
+INFO 2025-08-12 23:43:20,231 autoreload 10124 2464 Watching for file changes with StatReloader
+INFO 2025-08-12 23:47:48,583 autoreload 10124 2464 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\payments\payment_views.py changed, reloading.
+INFO 2025-08-12 23:47:49,803 autoreload 7280 21232 Watching for file changes with StatReloader
+INFO 2025-08-12 23:51:15,578 autoreload 7280 21232 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\payments\payment_views.py changed, reloading.
+INFO 2025-08-12 23:51:17,635 autoreload 24688 22844 Watching for file changes with StatReloader
+INFO 2025-08-13 16:35:53,772 autoreload 6668 5060 Watching for file changes with StatReloader
+ERROR 2025-08-13 16:37:52,854 payment_views 6668 14860 Test payment error: Cannot assign "'paystack'": "Payment.gateway" must be a "PaymentGateway" instance.
+ERROR 2025-08-13 16:37:52,868 log 6668 14860 Internal Server Error: /api/payments/test-student-registration/
+WARNING 2025-08-13 16:40:09,675 log 6668 14860 Bad Request: /api/payments/initialize/
+WARNING 2025-08-13 16:40:12,954 log 6668 14860 Bad Request: /api/payments/initialize/
+WARNING 2025-08-13 16:40:26,009 log 6668 14860 Bad Request: /api/payments/initialize/
+INFO 2025-08-13 23:58:18,189 autoreload 28616 10200 Watching for file changes with StatReloader
+ERROR 2025-08-13 23:59:35,286 auth 28616 13492 Failed to send new_device email to admin@example.com: [Errno 11001] getaddrinfo failed
+WARNING 2025-08-13 23:59:35,318 log 28616 13492 Forbidden: /api/auth/users/me/
+ERROR 2025-08-13 23:59:45,758 auth 28616 4916 Failed to send login_alert email to admin@example.com: [Errno 11001] getaddrinfo failed
+WARNING 2025-08-13 23:59:45,772 log 28616 4916 Forbidden: /api/auth/users/me/
+WARNING 2025-08-14 00:03:51,528 log 28616 22216 Not Found: /static/admin/css/base.css
+WARNING 2025-08-14 00:03:51,531 log 28616 29040 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-14 00:03:51,532 log 28616 32020 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-14 00:03:51,535 log 28616 22216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:03:51,538 log 28616 29040 Not Found: /static/admin/css/login.css
+WARNING 2025-08-14 00:03:51,542 log 28616 22216 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:03:52,480 log 28616 22216 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-14 00:03:52,490 log 28616 22216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:03:52,492 log 28616 32020 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:03:52,493 log 28616 29040 Not Found: /static/admin/css/login.css
+WARNING 2025-08-14 00:03:52,854 log 28616 29040 Not Found: /favicon.ico
+WARNING 2025-08-14 00:04:06,730 log 28616 29040 Not Found: /static/admin/css/base.css
+WARNING 2025-08-14 00:04:06,732 log 28616 32020 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-14 00:04:06,734 log 28616 22216 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-14 00:04:06,736 log 28616 19176 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:04:06,738 log 28616 8072 Not Found: /static/admin/css/login.css
+WARNING 2025-08-14 00:04:06,740 log 28616 32964 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:04:07,156 log 28616 32964 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-14 00:04:07,160 log 28616 32964 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:04:07,163 log 28616 8072 Not Found: /static/admin/css/login.css
+WARNING 2025-08-14 00:04:07,164 log 28616 19176 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:08,549 log 28616 19176 Not Found: /static/admin/css/base.css
+WARNING 2025-08-14 00:05:08,553 log 28616 8072 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-14 00:05:08,555 log 28616 32964 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-14 00:05:08,558 log 28616 32020 Not Found: /static/admin/css/login.css
+WARNING 2025-08-14 00:05:08,559 log 28616 29040 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:08,561 log 28616 22216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:05:08,961 log 28616 22216 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-14 00:05:08,966 log 28616 22216 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:05:08,967 log 28616 29040 Not Found: /static/admin/css/login.css
+WARNING 2025-08-14 00:05:08,973 log 28616 32020 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:28,136 log 28616 32020 Not Found: /static/admin/css/base.css
+WARNING 2025-08-14 00:05:28,142 log 28616 32020 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-14 00:05:28,144 log 28616 22216 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-14 00:05:28,145 log 28616 32964 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:05:28,148 log 28616 8072 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:28,149 log 28616 29040 Not Found: /static/admin/css/dashboard.css
+WARNING 2025-08-14 00:05:28,532 log 28616 29040 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-14 00:05:28,537 log 28616 29040 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:05:28,538 log 28616 8072 Not Found: /static/admin/css/dashboard.css
+WARNING 2025-08-14 00:05:28,539 log 28616 32964 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:44,933 log 28616 32964 Not Found: /
+WARNING 2025-08-14 00:05:56,237 log 28616 32964 Not Found: /static/admin/css/base.css
+WARNING 2025-08-14 00:05:56,243 log 28616 32964 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-14 00:05:56,245 log 28616 8072 Not Found: /static/admin/css/forms.css
+WARNING 2025-08-14 00:05:56,246 log 28616 29040 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-14 00:05:56,249 log 28616 32020 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:05:56,250 log 28616 19176 Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-08-14 00:05:56,255 log 28616 32964 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:56,257 log 28616 8072 Not Found: /static/admin/js/calendar.js
+WARNING 2025-08-14 00:05:56,261 log 28616 29040 Not Found: /static/admin/js/jquery.init.js
+WARNING 2025-08-14 00:05:56,263 log 28616 32020 Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2025-08-14 00:05:56,265 log 28616 19176 Not Found: /static/admin/js/core.js
+WARNING 2025-08-14 00:05:56,268 log 28616 32964 Not Found: /static/admin/js/inlines.js
+WARNING 2025-08-14 00:05:56,270 log 28616 8072 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-08-14 00:05:56,272 log 28616 29040 Not Found: /static/admin/js/actions.js
+WARNING 2025-08-14 00:05:56,274 log 28616 32020 Not Found: /static/admin/js/urlify.js
+WARNING 2025-08-14 00:05:56,276 log 28616 19176 Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-08-14 00:05:56,278 log 28616 32964 Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-08-14 00:05:56,280 log 28616 8072 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2025-08-14 00:05:56,626 log 28616 22216 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-14 00:05:56,627 log 28616 8072 Not Found: /static/admin/img/icon-unknown.svg
+WARNING 2025-08-14 00:05:56,628 log 28616 32964 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:05:56,629 log 28616 19176 Not Found: /static/admin/css/forms.css
+WARNING 2025-08-14 00:05:56,655 log 28616 19176 Not Found: /static/admin/js/change_form.js
+WARNING 2025-08-14 00:05:56,657 log 28616 8072 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:05:56,659 log 28616 19176 Not Found: /static/admin/img/icon-unknown.svg
+WARNING 2025-08-14 00:06:16,175 log 28616 1632 Not Found: /static/admin/css/base.css
+WARNING 2025-08-14 00:06:16,177 log 28616 19616 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-14 00:06:16,181 log 28616 1632 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:06:16,183 log 28616 19616 Not Found: /static/admin/css/forms.css
+WARNING 2025-08-14 00:06:16,185 log 28616 1632 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:06:16,187 log 28616 19616 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-14 00:06:16,191 log 28616 19616 Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+WARNING 2025-08-14 00:06:16,194 log 28616 19616 Not Found: /static/admin/js/calendar.js
+WARNING 2025-08-14 00:06:16,198 log 28616 19616 Not Found: /static/admin/js/jquery.init.js
+WARNING 2025-08-14 00:06:16,201 log 28616 19616 Not Found: /static/admin/js/admin/DateTimeShortcuts.js
+WARNING 2025-08-14 00:06:16,204 log 28616 1632 Not Found: /static/admin/js/core.js
+WARNING 2025-08-14 00:06:16,206 log 28616 19616 Not Found: /static/admin/js/inlines.js
+WARNING 2025-08-14 00:06:16,209 log 28616 1632 Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+WARNING 2025-08-14 00:06:16,210 log 28616 19616 Not Found: /static/admin/js/actions.js
+WARNING 2025-08-14 00:06:16,212 log 28616 1632 Not Found: /static/admin/js/urlify.js
+WARNING 2025-08-14 00:06:16,213 log 28616 19616 Not Found: /static/admin/js/prepopulate.js
+WARNING 2025-08-14 00:06:16,216 log 28616 1632 Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+WARNING 2025-08-14 00:06:16,217 log 28616 19616 Not Found: /static/admin/js/prepopulate_init.js
+WARNING 2025-08-14 00:06:16,592 log 28616 19616 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-14 00:06:16,594 log 28616 1632 Not Found: /static/admin/img/icon-unknown.svg
+WARNING 2025-08-14 00:06:16,595 log 28616 4492 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-14 00:06:16,596 log 28616 2784 Not Found: /static/admin/css/forms.css
+WARNING 2025-08-14 00:06:16,629 log 28616 2784 Not Found: /static/admin/js/change_form.js
+WARNING 2025-08-14 00:06:16,630 log 28616 4492 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-14 00:06:16,631 log 28616 19616 Not Found: /static/admin/img/icon-unknown.svg
+WARNING 2025-08-14 00:06:33,108 log 28616 27540 Not Found: /
+INFO 2025-08-14 00:16:01,452 autoreload 28616 10200 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-14 00:16:02,671 autoreload 24560 7736 Watching for file changes with StatReloader
+INFO 2025-08-14 00:16:08,191 autoreload 24560 7736 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-14 00:16:09,224 autoreload 3828 6016 Watching for file changes with StatReloader
+INFO 2025-08-14 00:16:15,767 autoreload 3828 6016 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-14 00:16:16,804 autoreload 13700 15940 Watching for file changes with StatReloader
+INFO 2025-08-14 00:16:23,391 autoreload 13700 15940 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-14 00:16:24,453 autoreload 17400 26480 Watching for file changes with StatReloader
+INFO 2025-08-14 00:18:39,708 autoreload 17400 26480 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-14 00:18:40,903 autoreload 24084 23120 Watching for file changes with StatReloader
+WARNING 2025-08-14 00:19:57,531 log 24084 23564 Not Found: /
+WARNING 2025-08-14 00:20:19,174 log 24084 33732 Not Found: /
+WARNING 2025-08-14 00:20:26,364 log 24084 9144 Not Found: /
+INFO 2025-08-14 00:20:54,889 autoreload 24084 23120 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\urls.py changed, reloading.
+INFO 2025-08-14 00:20:55,910 autoreload 33308 27688 Watching for file changes with StatReloader
+INFO 2025-08-14 00:21:03,557 autoreload 33308 27688 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\urls.py changed, reloading.
+INFO 2025-08-14 00:21:04,625 autoreload 22580 32664 Watching for file changes with StatReloader
+WARNING 2025-08-14 00:21:23,110 log 22580 16792 Not Found: /api/
+WARNING 2025-08-14 00:21:25,589 log 22580 28928 Not Found: /api/
+INFO 2025-08-14 00:21:53,562 autoreload 22580 32664 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\urls.py changed, reloading.
+INFO 2025-08-14 00:21:54,847 autoreload 27160 25568 Watching for file changes with StatReloader
+WARNING 2025-08-14 00:25:07,073 log 27160 19972 Not Found: /api/
+WARNING 2025-08-14 00:25:10,160 log 27160 26496 Not Found: /api/
+WARNING 2025-08-14 00:30:26,715 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:30:36,929 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:30:45,929 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:31:59,467 log 27160 9444 Not Found: /api/
+WARNING 2025-08-14 00:32:02,679 log 27160 28860 Not Found: /api/
+WARNING 2025-08-14 00:33:33,617 log 27160 4552 Not Found: /api/
+WARNING 2025-08-14 00:33:36,304 log 27160 26480 Not Found: /api/
+WARNING 2025-08-14 00:34:23,140 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:35:48,536 log 27160 31348 Not Found: /api/
+WARNING 2025-08-14 00:35:51,201 log 27160 5864 Not Found: /api/
+WARNING 2025-08-14 00:36:25,193 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:44,355 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:48,203 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:50,395 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:51,329 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:51,716 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:52,085 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:38:52,483 log 27160 13492 Not Found: /api/auth/login/
+WARNING 2025-08-14 00:40:41,735 log 27160 25716 Not Found: /api/
+WARNING 2025-08-14 00:40:44,410 log 27160 8352 Not Found: /api/
+INFO 2025-08-14 00:40:55,177 autoreload 27160 25568 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\users\urls.py changed, reloading.
+INFO 2025-08-14 00:40:56,865 autoreload 20696 32784 Watching for file changes with StatReloader
+INFO 2025-08-14 00:41:13,028 autoreload 20696 32784 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\courses\urls.py changed, reloading.
+INFO 2025-08-14 00:41:14,082 autoreload 31716 33668 Watching for file changes with StatReloader
+INFO 2025-08-14 00:41:22,986 autoreload 31716 33668 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\payments\urls.py changed, reloading.
+INFO 2025-08-14 00:41:24,545 autoreload 7284 25036 Watching for file changes with StatReloader
+INFO 2025-08-14 00:41:38,522 autoreload 7284 25036 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\chats\urls.py changed, reloading.
+INFO 2025-08-14 00:41:40,219 autoreload 7672 7212 Watching for file changes with StatReloader
+INFO 2025-08-14 00:44:40,222 autoreload 16756 28048 Watching for file changes with StatReloader
+WARNING 2025-08-14 00:48:55,463 log 33248 15400 Forbidden: /api/auth/users/me/
+INFO 2025-08-14 00:53:01,753 autoreload 8744 20956 Watching for file changes with StatReloader
+WARNING 2025-08-14 00:55:24,209 log 8744 18248 Not Found: /api/
+WARNING 2025-08-14 00:55:26,718 log 8744 22268 Not Found: /api/
+WARNING 2025-08-14 00:55:31,938 log 8744 8748 Method Not Allowed: /api/auth/login/
+WARNING 2025-08-14 00:58:14,560 log 8744 24716 Forbidden: /api/auth/users/me/
+INFO 2025-08-14 00:59:20,826 autoreload 8744 20956 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\config\settings.py changed, reloading.
+INFO 2025-08-14 00:59:21,958 autoreload 15992 32280 Watching for file changes with StatReloader
+INFO 2025-08-14 00:59:36,266 autoreload 30164 32816 Watching for file changes with StatReloader
+INFO 2025-08-14 01:03:07,374 autoreload 12616 14768 Watching for file changes with StatReloader
+INFO 2025-08-14 01:05:59,526 auth 12616 27084 Token verification successful
+INFO 2025-08-14 01:05:59,537 authentication 12616 27084 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:09:55,879 auth 12616 9896 Token verification successful
+INFO 2025-08-14 01:09:55,887 authentication 12616 9896 User authenticated via JWT: admin@example.com with role: super_admin
+ERROR 2025-08-14 01:09:55,914 platform_admin_views 12616 9896 Platform overview error: no such function: TO_CHAR
+ERROR 2025-08-14 01:09:55,916 log 12616 9896 Internal Server Error: /api/super-admin/overview/
+INFO 2025-08-14 01:09:57,949 auth 12616 20156 Token verification successful
+INFO 2025-08-14 01:09:57,953 authentication 12616 20156 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:09:59,990 auth 12616 20424 Token verification successful
+INFO 2025-08-14 01:09:59,995 authentication 12616 20424 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:10:02,063 auth 12616 2648 Token verification successful
+INFO 2025-08-14 01:10:02,068 authentication 12616 2648 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:11:26,756 auth 12616 11584 Token verification successful
+INFO 2025-08-14 01:11:26,764 authentication 12616 11584 User authenticated via JWT: admin@example.com with role: super_admin
+ERROR 2025-08-14 01:11:26,778 platform_admin_views 12616 11584 Platform overview error: no such function: TO_CHAR
+ERROR 2025-08-14 01:11:26,779 log 12616 11584 Internal Server Error: /api/super-admin/overview/
+INFO 2025-08-14 01:11:28,818 auth 12616 21372 Token verification successful
+INFO 2025-08-14 01:11:28,824 authentication 12616 21372 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:11:30,902 auth 12616 8176 Token verification successful
+INFO 2025-08-14 01:11:30,909 authentication 12616 8176 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:11:32,968 auth 12616 32704 Token verification successful
+INFO 2025-08-14 01:11:32,976 authentication 12616 32704 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:11:55,287 autoreload 12616 14768 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\courses\platform_admin_views.py changed, reloading.
+INFO 2025-08-14 01:11:56,767 autoreload 13844 14600 Watching for file changes with StatReloader
+INFO 2025-08-14 01:13:00,080 autoreload 6916 5468 Watching for file changes with StatReloader
+INFO 2025-08-14 01:13:42,829 auth 6916 29144 Token verification successful
+INFO 2025-08-14 01:13:42,840 authentication 6916 29144 User authenticated via JWT: admin@example.com with role: super_admin
+ERROR 2025-08-14 01:13:42,857 platform_admin_views 6916 29144 Platform overview error: 'User' object has no attribute 'total_revenue'
+ERROR 2025-08-14 01:13:42,860 log 6916 29144 Internal Server Error: /api/super-admin/overview/
+INFO 2025-08-14 01:13:44,914 auth 6916 14084 Token verification successful
+INFO 2025-08-14 01:13:44,924 authentication 6916 14084 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:13:46,991 auth 6916 20928 Token verification successful
+INFO 2025-08-14 01:13:46,996 authentication 6916 20928 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:13:49,058 auth 6916 23000 Token verification successful
+INFO 2025-08-14 01:13:49,064 authentication 6916 23000 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:15:48,910 autoreload 17032 31088 Watching for file changes with StatReloader
+INFO 2025-08-14 01:16:20,768 auth 17032 4800 Token verification successful
+INFO 2025-08-14 01:16:20,777 authentication 17032 4800 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:17:08,271 autoreload 17032 31088 C:\Users\User\Downloads\nclexkeys\nclexkeys-backend\nclexkeys-backend\backend\courses\platform_admin_views.py changed, reloading.
+INFO 2025-08-14 01:17:09,853 autoreload 28568 21108 Watching for file changes with StatReloader
+INFO 2025-08-14 01:17:21,887 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:17:21,892 authentication 28568 33016 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:17:24,327 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:17:24,331 authentication 28568 33016 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:19:47,351 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:19:47,358 authentication 28568 33016 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:21:09,613 auth 28568 29656 Token verification successful
+INFO 2025-08-14 01:21:09,620 authentication 28568 29656 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:21:11,686 auth 28568 548 Token verification successful
+INFO 2025-08-14 01:21:11,691 authentication 28568 548 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:21:26,091 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:21:26,097 authentication 28568 33016 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:23:23,008 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:23:23,016 authentication 28568 33016 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:24:12,622 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:24:12,627 authentication 28568 33016 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-14 01:24:18,538 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:24:18,545 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:24:18,555 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:24:18,560 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:24:32,524 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:24:32,535 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:24:36,741 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:24:36,747 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:24:36,755 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:24:36,761 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:25:14,617 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:25:14,623 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:25:22,705 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:25:22,713 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:25:22,721 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:25:22,728 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:25:52,885 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:25:52,890 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:25:52,897 auth 28568 33016 Token verification successful
+INFO 2025-08-14 01:25:52,902 authentication 28568 33016 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:29:09,435 autoreload 32040 14936 Watching for file changes with StatReloader
+INFO 2025-08-14 01:29:33,032 auth 32040 15300 Token verification successful
+INFO 2025-08-14 01:29:33,037 authentication 32040 15300 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:30:46,398 auth 32040 3520 Token verification successful
+INFO 2025-08-14 01:30:46,409 authentication 32040 3520 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:30:48,464 auth 32040 24404 Token verification successful
+INFO 2025-08-14 01:30:48,474 authentication 32040 24404 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-14 01:30:48,550 log 32040 24404 Bad Request: /api/admin/courses/create/
+INFO 2025-08-14 01:31:14,371 auth 32040 12192 Token verification successful
+INFO 2025-08-14 01:31:14,378 authentication 32040 12192 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:31:16,461 auth 32040 30452 Token verification successful
+INFO 2025-08-14 01:31:16,464 authentication 32040 30452 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-14 01:31:16,478 log 32040 30452 Bad Request: /api/admin/courses/create/
+INFO 2025-08-14 01:32:23,458 autoreload 11208 20628 Watching for file changes with StatReloader
+INFO 2025-08-14 01:33:05,049 auth 11208 31428 Token verification successful
+INFO 2025-08-14 01:33:05,061 authentication 11208 31428 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:33:07,125 auth 11208 10884 Token verification successful
+INFO 2025-08-14 01:33:07,139 authentication 11208 10884 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-14 01:33:07,209 log 11208 10884 Bad Request: /api/admin/courses/create/
+INFO 2025-08-14 01:33:32,400 auth 11208 24652 Token verification successful
+INFO 2025-08-14 01:33:32,408 authentication 11208 24652 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:33:34,504 auth 11208 27796 Token verification successful
+INFO 2025-08-14 01:33:34,520 authentication 11208 27796 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:33:37,222 instructor_views 11208 27796 Generated thumbnail from URL for course: Test Course - NCLEX Fundamentals
+INFO 2025-08-14 01:33:37,223 instructor_views 11208 27796 Course created: Test Course - NCLEX Fundamentals by admin instructor@example.com
+INFO 2025-08-14 01:33:45,262 auth 11208 6360 Token verification successful
+INFO 2025-08-14 01:33:45,268 authentication 11208 6360 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:33:47,314 auth 11208 6596 Token verification successful
+INFO 2025-08-14 01:33:47,319 authentication 11208 6596 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-14 01:33:47,348 log 11208 6596 Bad Request: /api/admin/courses/9d550be2-5eac-4e37-a482-6696316fa0c2/update/
+INFO 2025-08-14 01:35:08,628 auth 11208 13180 Token verification successful
+INFO 2025-08-14 01:35:08,637 authentication 11208 13180 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:35:08,648 auth 11208 13180 Token verification successful
+INFO 2025-08-14 01:35:08,653 authentication 11208 13180 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-14 01:35:37,803 auth 11208 13180 Token verification successful
+INFO 2025-08-14 01:35:37,810 authentication 11208 13180 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-14 01:35:37,816 log 11208 13180 Method Not Allowed: /api/admin/courses/
+INFO 2025-08-14 01:36:01,065 auth 11208 13180 Token verification successful
+INFO 2025-08-14 01:36:01,071 authentication 11208 13180 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-14 01:36:01,078 log 11208 13180 Method Not Allowed: /api/admin/courses/
+INFO 2025-08-21 23:35:13,113 autoreload 18520 9416 Watching for file changes with StatReloader
+WARNING 2025-08-21 23:35:52,093 auth 18520 4664 Token expired
+ERROR 2025-08-21 23:35:52,094 authentication 18520 4664 JWT authentication error: Your session has expired. Please login again.
+WARNING 2025-08-21 23:35:52,098 log 18520 4664 Unauthorized: /api/auth/users/me/
+WARNING 2025-08-21 23:36:12,050 log 18520 4664 Not Found: /api/payments/banks/
+WARNING 2025-08-21 23:36:12,063 log 18520 1012 Not Found: /api/payments/banks/
+WARNING 2025-08-21 23:36:12,076 log 18520 4664 Not Found: /api/payments/channels/
+WARNING 2025-08-21 23:36:12,115 log 18520 1012 Not Found: /api/payments/ussd-codes/
+WARNING 2025-08-21 23:36:12,127 log 18520 4664 Not Found: /api/payments/channels/
+WARNING 2025-08-21 23:36:12,182 log 18520 1012 Not Found: /api/payments/ussd-codes/
+WARNING 2025-08-21 23:36:12,185 log 18520 4664 Not Found: /api/payments/mobile-money/
+WARNING 2025-08-21 23:36:12,240 log 18520 4664 Not Found: /api/payments/mobile-money/
+WARNING 2025-08-21 23:41:27,399 log 18520 22980 Not Found: /api/
+WARNING 2025-08-21 23:41:31,879 log 18520 10844 Not Found: /api/
+WARNING 2025-08-21 23:41:48,542 log 18520 21920 Not Found: /api/payments/
+WARNING 2025-08-21 23:41:50,590 log 18520 22440 Not Found: /api/payments/bank-transfer/
+WARNING 2025-08-21 23:41:52,632 log 18520 19120 Not Found: /api/payments/verify/
+WARNING 2025-08-21 23:42:01,353 log 18520 13556 Not Found: /api/
+WARNING 2025-08-21 23:42:05,980 log 18520 13556 Not Found: /api/auth/
+WARNING 2025-08-21 23:44:10,321 log 18520 18656 Method Not Allowed: /api/auth/register/
+WARNING 2025-08-21 23:44:12,359 log 18520 22792 Method Not Allowed: /api/auth/login/
+WARNING 2025-08-21 23:44:14,398 log 18520 20596 Unauthorized: /api/auth/logout/
+WARNING 2025-08-21 23:44:16,424 log 18520 22684 Method Not Allowed: /api/auth/refresh/
+WARNING 2025-08-21 23:44:18,463 log 18520 22760 Unauthorized: /api/auth/users/me/
+WARNING 2025-08-21 23:44:20,487 log 18520 11028 Method Not Allowed: /api/auth/forgot-password/
+WARNING 2025-08-21 23:44:22,541 log 18520 20444 Unauthorized: /api/auth/change-password/
+WARNING 2025-08-21 23:44:26,633 log 18520 1584 Unauthorized: /api/admin/courses/
+WARNING 2025-08-21 23:44:28,696 log 18520 16900 Unauthorized: /api/super-admin/courses/
+WARNING 2025-08-21 23:44:32,802 log 18520 3316 Bad Request: /api/courses/search/
+WARNING 2025-08-21 23:44:34,842 log 18520 4584 Method Not Allowed: /api/api/payments/initialize/
+WARNING 2025-08-21 23:44:36,882 log 18520 3496 Unauthorized: /api/api/payments/gateways/
+WARNING 2025-08-21 23:44:45,023 log 18520 2032 Unauthorized: /api/api/payments/transactions/
+WARNING 2025-08-21 23:44:47,057 log 18520 8000 Method Not Allowed: /api/api/payments/webhooks/paystack/
+WARNING 2025-08-21 23:44:49,103 log 18520 3376 Unauthorized: /api/videos/upload/
+WARNING 2025-08-21 23:44:51,139 log 18520 13892 Unauthorized: /api/videos/user/
+WARNING 2025-08-21 23:44:53,184 log 18520 13688 Not Found: /api/videos/
+WARNING 2025-08-21 23:44:55,216 log 18520 13760 Unauthorized: /api/conversations/
+WARNING 2025-08-21 23:44:57,253 log 18520 11276 Unauthorized: /api/invitations/
+WARNING 2025-08-21 23:44:59,289 log 18520 9544 Unauthorized: /api/user/status/
+INFO 2025-08-21 23:45:17,578 auth 18520 22944 Token verification successful
+INFO 2025-08-21 23:45:17,585 authentication 18520 22944 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-21 23:45:19,618 auth 18520 1996 Token verification successful
+INFO 2025-08-21 23:45:19,622 authentication 18520 1996 User authenticated via JWT: admin@example.com with role: super_admin
+INFO 2025-08-21 23:46:26,039 auth 18520 13236 Token verification successful
+INFO 2025-08-21 23:46:26,046 authentication 18520 13236 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-21 23:46:28,124 auth 18520 8780 Token verification successful
+INFO 2025-08-21 23:46:28,128 authentication 18520 8780 User authenticated via JWT: instructor@example.com with role: admin
+WARNING 2025-08-21 23:46:28,197 log 18520 8780 Bad Request: /api/admin/courses/create/
+INFO 2025-08-21 23:46:45,262 auth 18520 20372 Token verification successful
+INFO 2025-08-21 23:46:45,270 authentication 18520 20372 User authenticated via JWT: instructor@example.com with role: admin
+INFO 2025-08-21 23:46:47,333 auth 18520 2508 Token verification successful
+INFO 2025-08-21 23:46:47,337 authentication 18520 2508 User authenticated via JWT: instructor@example.com with role: admin
